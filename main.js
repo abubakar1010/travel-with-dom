@@ -16,6 +16,10 @@ selectCard.forEach( card => {
         const placeName = event.target.parentNode.childNodes[1].innerText.toUpperCase()
         const Price = event.target.parentNode.childNodes[3].childNodes[1].innerText
 
+    budgetLimit(Price)
+
+
+
         const ChildContainer = document.createElement('li')
         const placeContainer= document.createElement('p')
         const priceContainer = document.createElement('p')
@@ -66,4 +70,21 @@ function grandTotal(vehicle){
     }
 
 
+
+
+
 }
+
+// is you have budget 
+
+function budgetLimit(shopping){
+
+    const totalBudget = parseFloat(document.getElementById("budget").innerText)
+
+    console.log(totalPrice);
+
+    setInnerText("budget",totalBudget - shopping)
+
+
+}
+
