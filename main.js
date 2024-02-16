@@ -43,3 +43,27 @@ function setInnerText(elementId, value){
 
     document.getElementById(elementId).innerText = value
 }
+
+
+
+function grandTotal(vehicle){
+
+    if( vehicle === "bus"){
+
+        setInnerText("grand-total",totalPrice + 100 )
+
+    }else if(vehicle === "train"){
+
+        setInnerText("grand-total",totalPrice - 200 )
+
+    }else if( vehicle = 'flight'){
+
+        setInnerText("grand-total",totalPrice + 500 )
+
+    }else{
+        setInnerText("grand-total",totalPrice)
+
+    }
+
+
+}
