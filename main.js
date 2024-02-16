@@ -1,6 +1,7 @@
 const selectCard = document.querySelectorAll(".add-btn")
 
 let count = 0;
+let totalPrice = 0;
 
 selectCard.forEach( card => {
 
@@ -29,7 +30,12 @@ selectCard.forEach( card => {
 
         parent.appendChild(ChildContainer)
 
-        console.log(placeName, Price);
+        let priceInNumber = parseFloat(Price)
+
+        totalPrice += priceInNumber
+
+        setInnerText("total-cost",totalPrice)
+        setInnerText("grand-total",totalPrice)
     })
 })
 
