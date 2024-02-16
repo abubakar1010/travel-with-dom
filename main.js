@@ -11,14 +11,10 @@ selectCard.forEach( card => {
 
         count++
 
-        setInnerText("cart-count",count)
-
         const placeName = event.target.parentNode.childNodes[1].innerText.toUpperCase()
         const Price = event.target.parentNode.childNodes[3].childNodes[1].innerText
 
     budgetLimit(Price)
-
-
 
         const ChildContainer = document.createElement('li')
         const placeContainer= document.createElement('p')
@@ -38,6 +34,7 @@ selectCard.forEach( card => {
 
         totalPrice += priceInNumber
 
+        setInnerText("cart-count",count)
         setInnerText("total-cost",totalPrice)
         setInnerText("grand-total",totalPrice)
     })
@@ -81,10 +78,22 @@ function budgetLimit(shopping){
 
     const totalBudget = parseFloat(document.getElementById("budget").innerText)
 
-    console.log(totalPrice);
+    if( totalBudget < shopping ){
 
-    setInnerText("budget",totalBudget - shopping)
+        alert('please add more budget')
 
+        // limitExtended.classList.setAttribute('disabled')
+
+        selectCard.forEach( card => {
+
+            card.style.backgroundColor = "rgb(109 109 109 / 17%)"
+
+            card.setAttribute("disabled", "")})
+
+        return 
+    }
+
+    setInnerText("budget", totalBudget - shopping)
 
 }
 
